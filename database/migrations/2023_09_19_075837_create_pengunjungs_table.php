@@ -13,16 +13,18 @@ return new class extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('j_identitas');
-            $table->integer('n_identitas');
-            $table->string('pekerjaan');
-            $table->string('alamat');
-            $table->string('no_hp');
+            $table->string('nama', 50);
+            $table->string('j_identitas', 15);
+            $table->bigInteger('n_identitas');
+            $table->string('pekerjaan', 50);
+            $table->string('jk');
+            $table->text('alamat');
+            $table->string('no_hp', 15);
             $table->string('keperluan');
             $table->string('tujuan');
-            $table->string('jam');
-            $table->longText('foto');
+            $table->date('tgl');
+            $table->time('jam');
+            $table->text('foto');
             $table->timestamps();
         });
     }

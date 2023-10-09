@@ -17,10 +17,27 @@
 
         </div>
         <div class="col-md-6">
-            <div id="app" class="visitor-app"></div>
-            <div class="data-container"></div>
+            <div id="vieww"></div>
 
         </div>
+        {{-- <div class="col-md-6">
+            <div id="app" class="visitor-app"></div>
+            <div class="data-container">
+                <h1 id="nama"></h1>
+                <h1 id="identitas"></h1>
+                <h1 id="n_identitas"></h1>
+                <h1 id="jk"></h1>
+                <h1 id="pekerjaan"></h1>
+                <h1 id="alamat"></h1>
+                <h1 id="no_hp"></h1>
+                <h1 id="keperluan"></h1>
+                <h1 id="tujuan"></h1>
+                <h1 id="tgl"></h1>
+                <h1 id="jam"></h1>
+
+            </div>
+
+        </div> --}}
     </div>
 
 </body>

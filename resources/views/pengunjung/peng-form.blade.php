@@ -76,11 +76,11 @@
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <label class="">Alamat</label>
-                            <textarea class="form-control"></textarea>
+                            <textarea name="alamat" class="form-control"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label class="">Keperluan</label>
                             <input type="text" name="keperluan"
                                 value="{{ old('keperluan', isset($edit) ? $edit->keperluan : '') }}" class="form-control"
@@ -91,7 +91,8 @@
                             <select name="tujuan" class="form-control" required="">
                                 <option value="" readonly>--Pilih--</option>
                                 <option value="direktur"
-                                    {{ isset($edit) && $edit->status_kepegawaian === 'direktur' ? 'selected' : '' }}>Direktur
+                                    {{ isset($edit) && $edit->status_kepegawaian === 'direktur' ? 'selected' : '' }}>
+                                    Direktur
                                 </option>
                                 <option value="sekretaris"
                                     {{ isset($edit) && $edit->status_kepegawaian === 'sekretaris' ? 'selected' : '' }}>
@@ -102,19 +103,30 @@
                             </select>
                         </div>
                         <div class="col-sm-2">
+                            <label class="">Tanggal Kunjungan</label>
+                            <input type="date" name="tgl" value="{{ old('tgl', isset($edit) ? $edit->tgl : '') }}"
+                                class="form-control" required="">
+                        </div>
+                        <div class="col-sm-2">
                             <label class="">Jam Kunjungan</label>
                             <input type="time" name="jam" value="{{ old('jam', isset($edit) ? $edit->jam : '') }}"
                                 class="form-control" required="">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-sm-6">
-                            <label class="">Input Foto Selfie Ke-1</label>
-                            <input type="file" name="uji1" class="form-control">
+                        <div class="col-sm-6" center>
+                            <label for="uji1">Input Foto Selfie</label></br>
+                            <video class="col-sm-6" id="uji1" width="300" height="180" autoplay></video>
+                            <img class="col-sm-6" id="preview" style="width: 300px; height: 180px; margin-top: -190px">
+                            <button class="btn btn-default form-control" type="button" onclick="capturePhoto()">Ambil Foto</button>
+                            <input type="hidden" id="photoUji1" name="photoUji1" required>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="">Input Foto Selfie Ke-2</label>
-                            <input type="file" name="uji2" class="form-control">
+                        <div class="col-sm-6" center>
+                            <label for="uji2">Konfirmasi Foto Selfie</label></br>
+                            <video class="col-sm-6" id="uji2" width="300" height="180" autoplay></video>
+                            <img class="col-sm-6" id="previewKonfirmasi" style="width: 300px; height: 180px; margin-top: -190px">
+                            <button class="btn btn-default form-control" type="button" onclick="capturePhotoKonfirmasi()">Ambil Foto</button>
+                            <input type="hidden" id="photoUji2" name="photoUji2" required>
                         </div>
                     </div>
                     <div class="card-footer text-right">
