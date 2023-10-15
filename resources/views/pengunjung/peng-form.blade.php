@@ -136,4 +136,6 @@
             </form>
         </div>
     </div>
+
+    <script src="{{ asset('assets/js/take-foto.js') }}"></script>
 @endsection

@@ -49,7 +49,7 @@
                                 <div class="card-body p-4">
 
                                     <div class="row">
-                                        <h6>Information</h6>
+                                        <h6>INFORMASI PENGUNJUNG</h6>
                                         <a href="/"><i class="far fa-edit"></i></a>
                                     </div>
                                     <hr class="mt-0 mb-2">

@@ -39,6 +39,7 @@ class PengunjungController extends Controller
         // dd($request->photoUji1 . ' =!= ' . $request->photoUji2);
 
         $pengunjung = new Pengunjung;
+        $pengunjung->uuid = $uuid;
         $pengunjung->nama = $request->nama;
         $pengunjung->j_identitas =  $request->jIdent;
         $pengunjung->n_identitas = $request->nIdent;
@@ -94,9 +95,14 @@ class PengunjungController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Pengunjung $pengunjung)
+    public function show($id)
     {
-        //
+        $show = Pengunjung::where('uuid',$id)->get();
+        return response()->json([
+            'data' => $show,
+            'message' => 'Show Pengunjung',
+            'success' => true
+        ]);
     }
 
     /**

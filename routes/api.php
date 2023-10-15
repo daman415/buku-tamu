@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/data-pengunjung', [PengunjungController::class, 'getDataPengunjung']);
+Route::get('/show/{id}', [PengunjungController::class, 'getDataPengunjung']);
 
 

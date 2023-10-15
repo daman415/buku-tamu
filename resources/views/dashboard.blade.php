@@ -1,17 +1,24 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Buku Tamu - Perusahaan</title>
+  <link rel="stylesheet" href="{{ asset('assets/css/face-style.css') }}">
+  <script defer src="{{ asset('assets/js/face-api.min.js') }}"></script>
+  <script defer src="{{ asset('assets/js/face-detec.js') }}"></script>
+</head>
+<body>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <video id="video" width="600" height="450" autoplay>
+        </div>
+        <div class="col-md-6">
+            <div id="nama"></div>
         </div>
     </div>
-</x-app-layout>
+
+</body>
+</html>

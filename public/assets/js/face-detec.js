@@ -2,7 +2,7 @@ const video = document.getElementById("video");
 
 const cardContainer = document.createElement("div");
 cardContainer.id = "card-container";
-document.getElementById("vieww").appendChild(cardContainer);
+// document.getElementById("vieww").appendChild(cardContainer);
 
 Promise.all([
     faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
@@ -27,12 +27,18 @@ function startWebcam() {
 async function getLabeledFaceDescriptions() {
     try {
         const response = await fetch('http://localhost:8000/api/data-pengunjung');
+        const uuid = await fetch('http://localhost:8000/api/data-pengunjung');
         const data = await response.json();
+        const dataUuid = await uuid.json();
 
         //mengambil data label dari database
         const getLabel = data.data.map(data => data);
+        const getUuid = dataUuid.data.map(data => data);
+
+        // console.log(getUuid)
 
         const labels = getLabel;
+
         return Promise.all(
             labels.map(async (label) => {
                 const descriptions = [];
@@ -46,7 +52,18 @@ async function getLabeledFaceDescriptions() {
                 }
 
 
+                const filteredPengunjung = getUuid.filter((value) => value.uuid === label.uuid);
+                console.log(filteredPengunjung[0].nama);
+                // document.getElementById('nama').innerHTML = filteredPengunjung[0].nama;
+
+
+                // if (!filteredPengunjung) {
+                // } else {
+                //     document.getElementById('nama').innerHTML = "Tidak Ada Data";
+                // }
+
                 return new faceapi.LabeledFaceDescriptors(label.nama, descriptions);
+
             })
         );
     } catch (error) {
@@ -54,6 +71,7 @@ async function getLabeledFaceDescriptions() {
         return [];
     }
 }
+
 
 video.addEventListener("play", async () => {
     const labeledFaceDescriptors = await getLabeledFaceDescriptions();
@@ -84,15 +102,14 @@ video.addEventListener("play", async () => {
                 label: result.toString(),
             });
             drawBox.draw(canvas);
+            console.log(result.label)
+            document.getElementById('nama').innerHTML = result.label;
 
-            // Display visitor data in a card
-            if (labeledFaceDescriptors[result.label - 1]) {
-                const visitorData = labeledFaceDescriptors[result.label - 1];
-                displayVisitorCard(visitorData);
-            }
         });
     }, 100);
 });
+
+
 
 
 
@@ -101,6 +118,6 @@ function displayVisitorCard(visitorData) {
     card.className = "visitor-card";
 
     const name = document.createElement("p");
-    name.textContent = `Name: ${visitorData.nama}`;
+    name.textContent = `Name: ${visitorData}`;
     card.appendChild(name);
 }
