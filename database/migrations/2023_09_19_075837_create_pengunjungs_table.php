@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('pengunjungs', function (Blueprint $table) {
             $table->id();
+            $table->string('uuid');
             $table->string('nama', 50);
             $table->string('j_identitas', 15);
             $table->bigInteger('n_identitas');

@@ -62,10 +62,6 @@
                                             <h6>Nomor HP</h6>
                                             <p class="text-muted">{{ $r->no_hp }}</p>
                                         </div>
-                                        <div class="col-12">
-                                            <h6>Alamat</h6>
-                                            <p class="text-muted">{{ ucwords($r->alamat) }}</p>
-                                        </div>
                                         <div class="col-6">
                                             <h6>Keperluan</h6>
                                             <p class="text-muted">{{ ucwords($r->keperluan) }}</p>
@@ -74,6 +70,11 @@
                                             <h6>Tujuan</h6>
                                             <p class="text-muted">{{ ucwords($r->tujuan) }}</p>
                                         </div>
+                                        <div class="col-12">
+                                            <h6>Alamat</h6>
+                                            <p class="text-muted">{{ ucwords($r->alamat) }}</p>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
